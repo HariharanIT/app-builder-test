@@ -109,7 +109,7 @@ const Navbar = (props: any) => {
       </View>
       <View
         style={{
-          width: '70%',
+          width: '60%',
           flexDirection: 'row',
           justifyContent: 'flex-end',
           zIndex: 9,
@@ -131,7 +131,7 @@ const Navbar = (props: any) => {
             // backgroundColor: '#f0f',
             // paddingHorizontal: 16,
             borderRadius: 10,
-            minWidth: Platform.OS === 'web' && isDesktop ? 300 : mobileAndTabletCheck() ? 150 : 200,
+            minWidth: Platform.OS === 'web' && isDesktop ? 500 : mobileAndTabletCheck() ? 300 : 250,
             // borderTopLeftRadius: 10,
             // borderBottomLeftRadius: 10,
             justifyContent: 'space-evenly',
@@ -157,7 +157,21 @@ const Navbar = (props: any) => {
               </MinUidConsumer> */}
             </TouchableOpacity>
           </View>
-          <View style={{width: '20%', height: '100%'}}>
+          {Platform.OS === 'web' && isDesktop ? (
+                <View
+                  style={{
+                    backgroundColor: $config.PRIMARY_FONT_COLOR + '80',
+                    width: 1,
+                    height: '100%',
+                    marginHorizontal: 10,
+                    alignSelf: 'center',
+                    opacity: 0.8,
+                  }}
+                />
+              ) : (
+                <></>
+              )}
+          <View style={{width: '10%', height: '100%'}}>
             <TouchableOpacity
               onPress={() => {
                 sidePanel === SidePanelType.Poll
